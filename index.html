@@ -9,18 +9,18 @@
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{--bg:#0a0a0f;--card:#12121a;--card2:#1a1a2e;--accent:#6c5ce7;--accent2:#a29bfe;--accent3:#fd79a8;--accent4:#00cec9;--text:#e8e8f0;--text2:#9898b0;--gradient:linear-gradient(135deg,#6c5ce7,#a29bfe);--gradient2:linear-gradient(135deg,#fd79a8,#e84393);--gradient3:linear-gradient(135deg,#00cec9,#0984e3)}
   body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
-  .bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden}
+  .bg-canvas{position:relative;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow-y:auto}
   .bg-canvas span{position:absolute;border-radius:50%;opacity:0.03;animation:float 20s infinite ease-in-out}
   .bg-canvas span:nth-child(1){width:500px;height:500px;background:var(--accent);top:-10%;left:-10%}
   .bg-canvas span:nth-child(2){width:400px;height:400px;background:var(--accent3);top:60%;right:-10%;animation-delay:-5s}
   .bg-canvas span:nth-child(3){width:300px;height:300px;background:var(--accent4);bottom:-5%;left:30%;animation-delay:-10s}
   @keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-40px) scale(1.1)}66%{transform:translate(-20px,20px) scale(0.9)}}
   .container{position:relative;z-index:1;max-width:480px;margin:0 auto;padding:20px 16px 100px}
-  .progress-bar-outer{background:var(--card);border-radius:100px;height:6px;overflow:hidden;margin-bottom:8px}
+  .progress-bar-outer{background:var(--card);border-radius:100px;height:6px;overflow-y:auto;margin-bottom:8px}
   .progress-bar-inner{height:100%;width:0%;background:var(--gradient);border-radius:100px;transition:width .8s cubic-bezier(.34,1.56,.64,1)}
   .progress-label{display:flex;justify-content:space-between;font-size:12px;color:var(--text2);margin-bottom:24px;font-weight:500}
   .progress-label span:last-child{color:var(--accent2)}
-  .card{background:var(--card);border-radius:20px;padding:24px 20px;margin-bottom:16px;border:1px solid rgba(255,255,255,0.04);position:relative;overflow:hidden;transition:all .6s cubic-bezier(.34,1.56,.64,1)}
+  .card{background:var(--card);border-radius:20px;padding:24px 20px;margin-bottom:16px;border:1px solid rgba(255,255,255,0.04);position:relative;overflow-y:auto;transition:all .6s cubic-bezier(.34,1.56,.64,1)}
   .card.visible{opacity:1;transform:translateY(0)}
   .card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;opacity:0;transition:opacity .4s}
   .card.accent1::before{background:var(--gradient);opacity:1}
@@ -68,7 +68,7 @@
   .hw-result.show{display:block;animation:fadeUp .4s ease}
   .hw-result strong{color:var(--text)}
   @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-  .question-card{background:var(--card2);border-radius:20px;padding:24px 20px;margin-bottom:16px;position:relative;overflow:hidden}
+  .question-card{background:var(--card2);border-radius:20px;padding:24px 20px;margin-bottom:16px;position:relative;overflow-y:auto}
   .question-card::after{content:'💬';position:absolute;right:-10px;bottom:-10px;font-size:80px;opacity:0.04}
   .question-card .q-label{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent3);margin-bottom:10px}
   .question-card p{font-size:15px;line-height:1.7;color:var(--text);font-weight:500}
@@ -83,13 +83,13 @@
   .stat-item .stat-label{font-size:11px;color:var(--text2);margin-top:4px;font-weight:500}
   .pulse-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent4);margin-right:6px;animation:pulse 1.5s infinite}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)}}
-  .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,15,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.04);padding:12px 16px;z-index:10}
+  .bottom-nav{position:relative;bottom:0;left:0;right:0;background:rgba(10,10,15,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.04);padding:12px 16px;z-index:10}
   .bottom-nav .nav-inner{max-width:480px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
   .bottom-nav .nav-inner .nav-text{flex:1;font-size:13px;color:var(--text2);font-weight:500}
   .bottom-nav .nav-inner .nav-text strong{color:var(--text)}
   .bottom-nav .nav-btn{background:var(--gradient);border:none;border-radius:12px;padding:12px 28px;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;color:white;cursor:pointer;transition:all .3s;white-space:nowrap;text-decoration:none;display:inline-block}
   .bottom-nav .nav-btn:active{transform:scale(0.95);opacity:0.9}
-  .confetti-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:100;overflow:hidden}
+  .confetti-container{position:relative;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:100;overflow-y:auto}
   .confetti-piece{position:absolute;width:8px;height:8px;border-radius:2px;animation:confettiFall 3s ease-in forwards}
   @keyframes confettiFall{0%{opacity:1;transform:translateY(-10px) rotate(0deg) scale(1)}100%{opacity:0;transform:translateY(100vh) rotate(720deg) scale(0)}}
   ::-webkit-scrollbar{width:4px}
@@ -216,3 +216,18 @@
 
 <div class="bottom-nav">
 <div class="nav-inner"><a href="https://alsvaitlenovo-eng.github.io/telegram-lesson-7/" style="background:rgba(255,255,255,0.04);color:#e8e8f0;text-decoration:none;border:none;border-radius:12px;padding:12px 18px;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all .3s;white-space:nowrap;">← Урок 7</a> <span style="color:rgba(255,255,255,0.2);font-size:13px;font-weight:500;">8 / 12</span> <a href="https://alsvaitlenovo-eng.github.io/telegram-lesson-9/" style="background:linear-gradient(135deg,#6c5ce7,#a29bfe);color:white;text-decoration:none;border:none;border-radius:12px;padding:12px 24px;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all .3s;white-space:nowrap;">Урок 9 →</a></div></div>
+<script>
+(function(){
+  document.querySelectorAll('.card, .hw-card, .question-card').forEach(function(el){
+    el.classList.add('visible');
+  });
+  // Remove display:none from completeCard
+  var cc = document.getElementById('completeCard');
+  if(cc) cc.style.display = '';
+  // Progress to max
+  var pb = document.getElementById('progressFill');
+  if(pb) pb.style.width = '100%';
+  var pp = document.getElementById('progressPct');
+  if(pp) pp.innerHTML = '✅ 100% завершено';
+})();
+</script>
