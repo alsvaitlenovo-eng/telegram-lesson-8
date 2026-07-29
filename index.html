@@ -215,19 +215,4 @@
 </div>
 
 <div class="bottom-nav">
-<div class="nav-inner">
-<div class="nav-text">Урок <strong>8</strong> / 12</div>
-<button class="nav-btn" id="nextBtn">Продолжить →</button>
-</div>
-</div>
-
-<script>
-(function(){const TOTAL_STEPS=6;let currentStep=0;const cards=document.querySelectorAll('.card[data-step],.hw-card[data-step],.question-card[data-step]');const completeCard=document.getElementById('completeCard');const progressBar=document.getElementById('progressBar');const progressPct=document.getElementById('progressPct');const nextBtn=document.getElementById('nextBtn');function updateProgress(){const pct=Math.round((currentStep/TOTAL_STEPS)*100);progressBar.style.width=pct+'%';if(pct===0){progressPct.innerHTML='<span class="pulse-dot"></span>0% завершено'}else if(pct<100){progressPct.innerHTML=pct+'% завершено'}else{progressPct.innerHTML='✅ 100% завершено'}
-cards.forEach((card,i)=>{const step=parseInt(card.dataset.step);if(step<=currentStep){card.classList.add('visible')}})}
-function tryComplete(){if(currentStep>=TOTAL_STEPS){completeCard.style.display='block';completeCard.classList.add('visible');nextBtn.textContent='🎉 Урок пройден!';nextBtn.style.opacity='0.6';nextBtn.style.pointerEvents='none';launchConfetti()}}
-function nextStep(){if(currentStep<TOTAL_STEPS){currentStep++;updateProgress();tryComplete();const nextCard=document.querySelector('.card:not(.visible),.hw-card:not(.visible),.question-card:not(.visible)');if(nextCard){nextCard.scrollIntoView({behavior:'smooth',block:'center'})}}}
-document.getElementById('hwBtn').addEventListener('click',function(){const result=document.getElementById('hwResult');result.classList.add('show');if(currentStep<TOTAL_STEPS){setTimeout(()=>{if(currentStep<TOTAL_STEPS)nextStep()},800)}});nextBtn.addEventListener('click',nextStep);function launchConfetti(){const container=document.getElementById('confetti');const colors=['#6c5ce7','#a29bfe','#fd79a8','#00cec9','#fdcb6e','#e17055','#0984e3'];for(let i=0;i<60;i++){const piece=document.createElement('div');piece.className='confetti-piece';piece.style.left=Math.random()*100+'%';piece.style.top='-10px';piece.style.background=colors[Math.floor(Math.random()*colors.length)];piece.style.width=(Math.random()*8+4)+'px';piece.style.height=(Math.random()*8+4)+'px';piece.style.borderRadius=Math.random()>0.5?'50%':'2px';piece.style.animationDuration=(Math.random()*2+2)+'s';piece.style.animationDelay=(Math.random()*1.5)+'s';piece.style.transform='rotate('+(Math.random()*360)+'deg)';container.appendChild(piece);setTimeout(()=>piece.remove(),4000)}}
-updateProgress();const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible')}})},{threshold:0.1});cards.forEach(card=>observer.observe(card))})();
-</script>
-</body>
-</html>
+<div class="nav-inner"><a href="https://alsvaitlenovo-eng.github.io/telegram-lesson-7/" style="background:rgba(255,255,255,0.04);color:#e8e8f0;text-decoration:none;border:none;border-radius:12px;padding:12px 18px;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all .3s;white-space:nowrap;">← Урок 7</a> <span style="color:rgba(255,255,255,0.2);font-size:13px;font-weight:500;">8 / 12</span> <a href="https://alsvaitlenovo-eng.github.io/telegram-lesson-9/" style="background:linear-gradient(135deg,#6c5ce7,#a29bfe);color:white;text-decoration:none;border:none;border-radius:12px;padding:12px 24px;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all .3s;white-space:nowrap;">Урок 9 →</a></div></div>
